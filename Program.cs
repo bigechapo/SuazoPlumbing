@@ -19,7 +19,7 @@ app.MapPost("/contact", async (HttpRequest request) =>
     var smtp = new SmtpClient("smtp.gmail.com")
     {
         Port = 587,
-        Credentials = new NetworkCredential("plumbprosuazo@gmail.com", "YOUR_APP_PASSWORD"),
+        Credentials = new NetworkCredential("plumbprosuazo@gmail.com", "dbie rfof fmsc ebqy"),
         EnableSsl = true,
     };
 
