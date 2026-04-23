@@ -4,8 +4,193 @@
     <meta charset="utf-8" />
     <title>Redirecting...</title>
     <meta http-equiv="refresh" content="0; url='/Plumbing.html'">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Comfortaa:wght@300;400&display=swap" rel="stylesheet">
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Comfortaa', sans-serif;
+            color: white;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: DodgerBlue;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+        }
+
+            .logo img {
+                height: 40px;
+                width: 40px;
+            }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+            .nav-links a {
+                text-decoration: none;
+                color: white;
+                font-weight: bold;
+                padding: 8px 15px;
+                border-radius: 20px;
+                transition: background 0.3s;
+            }
+
+                .nav-links a:hover {
+                    background-color: #1c86ee;
+                }
+        /* DROPDOWN */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: background 0.3s;
+            display: inline-block;
+        }
+
+            .dropbtn:hover {
+                background-color: #1c86ee;
+            }
+
+        /* Dropdown menu hidden by default */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 180px;
+            top: 100%;
+            left: 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            overflow: hidden;
+            z-index: 1001;
+        }
+
+            /* Dropdown links */
+            .dropdown-content a {
+                color: DodgerBlue;
+                padding: 10px 15px;
+                text-decoration: none;
+                display: block;
+                font-weight: bold;
+            }
+
+                .dropdown-content a:hover {
+                    background-color: #f1f1f1;
+                }
+
+        /* Show dropdown on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        /* ABOUT SECTION */
+        .footer-container {
+            background-color: DodgerBlue;
+            font-family: 'Playfair Display', serif;
+            color: white;
+            text-align: center;
+            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 40px;
+            padding: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* CONTACT FORM */
+        .contact-section {
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input, textarea {
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-family: 'Comfortaa', sans-serif;
+        }
+
+        button {
+            padding: 12px;
+            border: none;
+            border-radius: 20px;
+            background-color: DodgerBlue;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background-color: #1c86ee;
+            }
+    </style>
 </head>
+
 <body>
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <!--<div class="logo">
+             Replace with your own logo if you have one
+            <img src="" alt="Logo">
+            PlumbPro
+        </div>-->
+
+        <div class="nav-links">
+
+            <!-- DROPDOWN -->
+            <div class="dropdown">
+                <a href="#" class="dropbtn">Services ▾</a>
+
+                <div class="dropdown-content">
+                    <a href="/Plumbing.html">Suazo Plumbing</a>
+                    <a href="/Trailer.html">Suazo Trailer</a>
+                </div>
+            </div>
+
+            <a href="/Contact.html">Contact Me</a>
+        </div>
+    </div>
+
+
     <p>Redirecting you to the page...</p>
 </body>
 </html>

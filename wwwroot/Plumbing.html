@@ -12,6 +12,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Comfortaa', sans-serif;
+            color: white;
         }
 
         /* NAVBAR */
@@ -59,6 +60,58 @@
                     background-color: #1c86ee;
                 }
 
+        /* DROPDOWN */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: background 0.3s;
+            display: inline-block;
+        }
+
+            .dropbtn:hover {
+                background-color: #1c86ee;
+            }
+
+        /* Dropdown menu hidden by default */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 180px;
+            top: 100%;
+            left: 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            overflow: hidden;
+            z-index: 1001;
+        }
+
+            /* Dropdown links */
+            .dropdown-content a {
+                color: DodgerBlue;
+                padding: 10px 15px;
+                text-decoration: none;
+                display: block;
+                font-weight: bold;
+            }
+
+                .dropdown-content a:hover {
+                    background-color: #f1f1f1;
+                }
+
+        /* Show dropdown on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
         .content {
             padding: 40px;
         }
@@ -67,7 +120,7 @@
         .footer-container {
             background-color: DodgerBlue;
             font-family: 'Playfair Display', serif;
-            color: #800020;
+            color: white;
             text-align: center;
             box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
             border-radius: 40px;
@@ -130,7 +183,7 @@
                 <a href="#" class="dropbtn">Services ▾</a>
 
                 <div class="dropdown-content">
-                    <a href="/Plumbing.html">Plumbing</a>
+                    <a href="/Plumbing.html">Suazo Plumbing</a>
                     <a href="/Trailer.html">Suazo Trailer</a>
                 </div>
             </div>
