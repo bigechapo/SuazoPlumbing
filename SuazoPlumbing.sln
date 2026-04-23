@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuazoPlumbing", "SuazoPlumbing\SuazoPlumbing.csproj", "{D4E8A1B2-3C45-4F67-89AB-1C2D3E4F5A6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuazoPlumbing", "SuazoPlumbing.csproj", "{D4E8A1B2-3C45-4F67-89AB-1C2D3E4F5A6B}"
 EndProject
 
 Global
