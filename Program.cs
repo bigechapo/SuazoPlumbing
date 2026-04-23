@@ -4,6 +4,7 @@ using System.Net.Mail;
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
+app.UseDefaultFiles();
 app.UseStaticFiles();
 
 // Handle form submission
