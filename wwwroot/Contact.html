@@ -131,15 +131,19 @@
     </div>
 
     <div class="content">
-
-
         <!-- CONTACT -->
         <div class="contact-section" id="contact">
             <h2>Contact Me</h2>
             <p>Phone number: (213) 864 - 1738</p>
             <p>Email: plumbprosuazo@gmail.com</p>
-        </div>
 
+            <form method="post" action="/contact">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
     </div>
 
 </body>
