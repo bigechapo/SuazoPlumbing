@@ -4,19 +4,14 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>SuazoPlumbing</RootNamespace>
+    <RootNamespace>SuazoPlumbing_Start</RootNamespace>
   </PropertyGroup>
 
+  <!-- Remove HTML pages from being published/served -->
   <ItemGroup>
-    <Compile Remove="Pages\Contact.html" />
-    <Compile Remove="Pages\Plumbing.html" />
-    <Compile Remove="Pages\Trailer.html" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="Pages\Contact.html" />
-    <Compile Remove="Pages\Plumbing.html" />
-    <Compile Remove="Pages\Trailer.html" />
+    <Content Remove="Pages\Contact.html" />
+    <Content Remove="Pages\Plumbing.html" />
+    <Content Remove="Pages\Trailer.html" />
   </ItemGroup>
 
   <ItemGroup>
