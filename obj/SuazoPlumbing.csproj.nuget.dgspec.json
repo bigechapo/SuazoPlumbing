@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\liler\\source\\repos\\SuazoPlumbing\\SuazoPlumbing.csproj": {}
+    "C:\\Users\\liler\\source\\repos\\bigechapo\\SuazoPlumbing\\SuazoPlumbing.csproj": {}
   },
   "projects": {
-    "C:\\Users\\liler\\source\\repos\\SuazoPlumbing\\SuazoPlumbing.csproj": {
+    "C:\\Users\\liler\\source\\repos\\bigechapo\\SuazoPlumbing\\SuazoPlumbing.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\liler\\source\\repos\\SuazoPlumbing\\SuazoPlumbing.csproj",
+        "projectUniqueName": "C:\\Users\\liler\\source\\repos\\bigechapo\\SuazoPlumbing\\SuazoPlumbing.csproj",
         "projectName": "SuazoPlumbing",
-        "projectPath": "C:\\Users\\liler\\source\\repos\\SuazoPlumbing\\SuazoPlumbing.csproj",
+        "projectPath": "C:\\Users\\liler\\source\\repos\\bigechapo\\SuazoPlumbing\\SuazoPlumbing.csproj",
         "packagesPath": "C:\\Users\\liler\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\liler\\source\\repos\\SuazoPlumbing\\obj\\",
+        "outputPath": "C:\\Users\\liler\\source\\repos\\bigechapo\\SuazoPlumbing\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
