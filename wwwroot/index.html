@@ -19,7 +19,6 @@
             font-size:120%;
         }
 
-        /* NAVBAR */
         .navbar {
             position: sticky;
             top: 0;
@@ -28,41 +27,49 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 30px;
+            padding: 12px 40px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
 
+        /* LOGO */
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             color: white;
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
+            font-weight: 600;
         }
 
             .logo img {
-                height: 40px;
-                width: 40px;
+                height: 45px;
+                width: 45px;
+                object-fit: contain;
             }
 
+        /* NAV LINKS */
         .nav-links {
             display: flex;
-            gap: 20px;
+            align-items: center;
+            gap: 25px;
         }
 
-            .nav-links a {
+            .nav-links a,
+            .dropbtn {
                 text-decoration: none;
                 color: white;
                 font-weight: bold;
-                padding: 8px 15px;
-                border-radius: 20px;
-                transition: background 0.3s;
+                padding: 8px 16px;
+                border-radius: 25px;
+                transition: background 0.3s ease;
             }
 
-                .nav-links a:hover {
+                .nav-links a:hover,
+                .dropbtn:hover {
                     background-color: #1c86ee;
                 }
+
         /* DROPDOWN */
         .dropdown {
             position: relative;
@@ -172,27 +179,26 @@
 <body>
     <!-- NAVBAR -->
     <div class="navbar">
-        <!--<div class="logo">
-             Replace with your own logo if you have one
-            <img src="" alt="Logo">
-            PlumbPro
-        </div>-->
-
-        <div class="nav-links">
-
-            <!-- DROPDOWN -->
-            <div class="dropdown">
-                <a href="#" class="dropbtn">Services ▾</a>
-
-                <div class="dropdown-content">
-                    <a href="/Plumbing.html">Suazo Plumbing</a>
-                    <a href="/Trailer.html">Suazo Trailer</a>
-                </div>
+            <div class="logo">
+                <img src="/Images/plumbpro.png" alt="Logo">
+                PlumbPro
             </div>
 
-            <a href="/Contact.html">Contact Me</a>
+            <div class="nav-links">
+
+                <!-- DROPDOWN -->
+                <div class="dropdown">
+                    <a href="#" class="dropbtn">Services ▾</a>
+
+                    <div class="dropdown-content">
+                        <a href="/Plumbing.html">Suazo Plumbing</a>
+                        <a href="/Trailer.html">Suazo Trailer</a>
+                    </div>
+                </div>
+
+                <a href="/Contact.html">Contact Me</a>
+            </div>
         </div>
-    </div>
 
 
     <p>Redirecting you to the page...</p>
