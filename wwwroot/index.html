@@ -160,6 +160,26 @@
             max-width: 800px;
             margin: 0 auto;
         }
+
+        .ladder-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .image-gallery {
+            flex: 1;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+            .image-gallery img {
+                border-radius: 10px;
+            }
     </style>
 </head>
 
@@ -192,10 +212,18 @@
     <div class="content">
         <div class="footer-container" id="about">
             <p>Welcome to my page, I am proud of the services I provide to serve my community. I complete services that include plumbing and trailer involved services.</p>
+            <div class="ladder-section">
+                <div class="image-gallery">
+                    <img src="/Images/suazoladder1.png" alt="Suazo Ladder 1">
+                </div>
+                <div class="image-gallery">
+                    <img src="/Images/suazoladder2.png" alt="Suazo Ladder 2">
+                </div>
+            </div>
         </div>
     </div>
 
 
-    <p>Redirecting you to the page...</p>
+    <!--<p>Redirecting you to the page...</p>-->
 </body>
 </html>
