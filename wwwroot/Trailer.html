@@ -74,6 +74,35 @@
                     background-color: #1c86ee;
                 }
 
+        /* Mobile friendly images*/
+        .equipment-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            flex-wrap: wrap; /* makes it mobile-friendly */
+        }
+
+            .equipment-section ul {
+                flex: 1;
+                text-align: left;
+            }
+
+        .image-gallery {
+            flex: 1;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+            .image-gallery img {
+                width: 100%;
+                max-width: 180px;
+                height: auto;
+                border-radius: 10px;
+            }
+
 
         /* DROPDOWN */
         .dropdown {
@@ -227,6 +256,25 @@
                 <li>Yard Waste & Bulk Item Removal</li>
                 <li>Safe & Proper Disposal Residential and Commercial</li>
             </ul>
+
+            <p style="margin-bottom:15px;"></p>
+            <p style="margin-bottom:15px;"></p>
+
+
+            <div class="equipment-section">
+
+                <ul>
+                    <li>4 x 8 Small Pick-up</li>
+                    <li>8 x 12 x 4 Hydraulic Dump Trailer</li>
+                </ul>
+
+                <div class="image-gallery">
+                    <img src="/Images/smalltrailer.jpeg" alt="Small Trailer" />
+                    <img src="/Images/hydrolictrailer1.jpeg" alt="Hydraulic Trailer 1" />
+                    <img src="/Images/hydrolictrailer2.jpeg" alt="Hydraulic Trailer 2" />
+                </div>
+
+            </div>
         </div>
 
 
