@@ -28,21 +28,27 @@
         }
 
         /* LOGO */
-        .logo {
+        .logo a {
             display: flex;
             align-items: center;
             gap: 12px;
             color: white;
+            text-decoration: none; /* removes underline */
             font-family: 'Playfair Display', serif;
             font-size: 1.6rem;
             font-weight: 600;
         }
 
-            .logo img {
-                height: 60px;
-                width: 75px;
-                object-fit: contain;
+            .logo a:hover {
+                text-decoration: none; /* keeps it clean on hover */
+                color: white; /* prevents color change */
             }
+
+        .logo img {
+            height: 80px; /* adjust this value as needed */
+            width: auto; /* keeps proportions correct */
+            object-fit: contain;
+        }
 
         /* NAV LINKS */
         .nav-links {
@@ -177,8 +183,10 @@
     <!-- NAVBAR -->
     <div class="navbar">
         <div class="logo">
-            <img src="/Images/plumbpro.png" alt="Logo">
-            Suazo PlumbPro
+            <a href="/index.html">
+                <img src="/Images/plumbpro.png" alt="Logo">
+                <span>Suazo PlumbPro</span>
+            </a>
         </div>
 
         <div class="nav-links">
