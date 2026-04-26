@@ -20,6 +20,7 @@
 
         p, li {
             font-size:18px;
+            padding: 5px;
         }
 
         .navbar {
@@ -135,18 +136,28 @@
             padding: 40px;
         }
 
+        .service-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+            .service-section ul {
+                flex: 1;
+                text-align: left;
+            }
+
         .image-gallery {
+            flex: 1;
             display: flex;
             flex-wrap: wrap;
+            gap: 10px;
             justify-content: center;
-            gap: 15px;
         }
 
             .image-gallery img {
-                width: 100%;
-                height: 100%;
-                max-width: 200px;
-                max-height: 200px;
                 border-radius: 10px;
             }
 
@@ -175,12 +186,15 @@
         }
 
         .service {
-            display: inline-flex;
-            justify-content: space-evenly;
-            align-items:center;
-            gap: 200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
             flex-wrap: wrap;
         }
+            .service img {
+                padding: 5px;
+            }
 
 
 
@@ -296,21 +310,27 @@
                 </p>
 
                 <p>I provide:</p>
-                <section>
-                    <ul style="text-align:left;">
-                        <li><strong>24 Hour</strong> emergency plumbing services</li>
-                        <li>Sewer Repairs & Replacements</li>
-                        <li>Bathroom & Kitchen Remodeling</li>
-                        <li>Toilet, Sink & Faucet Repairs</li>
-                        <li>Leaky Faucets, Pipes, & Snaking Services</li>
-                        <li>Gas Line Repairs & Installations</li>
-                        <li>Broken Pipes Repairs</li>
-                    </ul>
-                </section>
+                <div class="service-section" id="service-section">
+                    <section>
+                        <ul style="text-align:left;">
+                            <li><strong>24 Hour</strong> emergency plumbing services</li>
+                            <li>Sewer Repairs & Replacements</li>
+                            <li>Bathroom & Kitchen Remodeling</li>
+                            <li>Toilet, Sink & Faucet Repairs</li>
+                            <li>Leaky Faucets, Pipes, & Snaking Services</li>
+                            <li>Gas Line Repairs & Installations</li>
+                            <li>Broken Pipes Repairs</li>
+                        </ul>
+                    </section>
 
-                <section>
+                    <div class="image-gallery">
+                        <section>
+                            <img height="335" width="225" src="Images/commercialpiping.jpeg" />
+                        </section>
+                    </div>
+                </div>
 
-                </section>
+
             </div>
         </div>
 
@@ -318,17 +338,26 @@
 
         <div class="footer-outline" id="contact">
             <div class="footer-container" id="contact">
-                <h2>Down below are some of the projects I have completed</h2>
+                <h2>Down below are some of the projects I have completed:</h2>
                 <div class="service" id="service">
-                    <section>
-                        <h3>Before</h3>
-                        <img height ="250" width="250" src="Images/showerbefore.jpeg" />
-                    </section>
+                    <div class="service-section" id="service-section">
+                        <h2>Before</h2>
+                        <div class="image-gallery" id="image-gallery">
+                            <img height="250" width="250" src="Images/showerbefore.jpeg" />
+                            <img height="250" width="250" src="Images/bathroombefore.jpeg" />
+                            <img height="250" width="250" src="Images/sinkbefore.jpeg" />
+                        </div>
 
-                    <section>
-                        <h3>After</h3>
-                        <img height ="250" width="250" src="Images/showerafter.jpeg" />
-                    </section>               
+
+                        <h2>After</h2>
+                        <div class="image-gallery" id="image-gallery">
+                            <img height="250" width="250" src="Images/showerafter.jpeg" />
+                            <img height="250" width="250" src="Images/bathroomafter.jpeg" />
+                            <img height="250" width="250" src="Images/sinkafter.jpeg" />
+                        </div>
+                    </div>    
+                    
+             
                 </div>
             </div>
         </div>
