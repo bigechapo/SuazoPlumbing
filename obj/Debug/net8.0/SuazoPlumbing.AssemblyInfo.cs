@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SuazoPlumbing")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d5b899bacc84ba6644d54093aa5d814f6675776f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2809f40fc71311c79c599d20fd4d4914ffd465ce")]
 [assembly: System.Reflection.AssemblyProductAttribute("SuazoPlumbing")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SuazoPlumbing")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
