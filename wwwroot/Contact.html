@@ -12,11 +12,11 @@
             margin: 0;
             padding: 0;
             font-family: 'Times New Roman', sans-serif;
-            color: white;
+            background-color: darkslategrey;
         }
 
         p, input, textarea {
-            font-size: 18px;
+            font-size: 20px;
         }
 
         .navbar {
@@ -71,6 +71,7 @@
                 padding: 8px 16px;
                 border-radius: 25px;
                 transition: background 0.3s ease;
+                font-size:20px;
             }
 
                 .nav-links a:hover,
@@ -102,7 +103,7 @@
         .dropdown-content {
             display: none;
             position: absolute;
-            background-color: white;
+            background-color: black;
             min-width: 180px;
             top: 100%;
             left: 0;
@@ -122,7 +123,7 @@
             }
 
                 .dropdown-content a:hover {
-                    background-color: #f1f1f1;
+                    background-color: #808080;
                 }
 
         /* Show dropdown on hover */
@@ -207,30 +208,30 @@
                     <a href="/Trailer.html">Suazo Trailer</a>
                 </div>
             </div>
-
             <a href="/Contact.html">Contact Me</a>
         </div>
     </div>
 
     <div class="content">
         <div class="footer-container" id="footer.container">
-            <div class="contact-section" id="contact">
-                <h2>Contact Me</h2>
-                <p>Phone number: (213) 864 - 1738</p>
-                <p>Email: plumbprosuazo@gmail.com</p>
-                <p style="margin-bottom: 25px;"></p>
-                <p>Or</p>
-                <p style="margin-bottom: 25px;"></p>
-                <p>Leave your name, email and the problem you are currently facing and I will be happy to help!</p>
-                <p style="margin-bottom: 20px;"></p>
+                <div class="contact-section" id="contact">
+                    <h1>Contact Me</h1>
+                    <p>Phone number: (213) 864 - 1738</p>
+                    <p style="margin-bottom: 20px;"></p>
+                    <p>Email: plumbprosuazo@gmail.com</p>
+                    <p style="margin-bottom: 25px;"></p>
+                    <p>Or</p>
+                    <p style="margin-bottom: 25px;"></p>
+                    <p>Leave your name, email and the problem you are currently facing and I will be happy to help!</p>
+                    <p style="margin-bottom: 20px;"></p>
 
-                <form method="post" action="/contact">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-                    <button style ="background-color: tan" type="submit">Send Message</button>
-                </form>
-            </div>
+                    <form method="post" action="/contact">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                        <button style="background-color: tan" type="submit">Send Message</button>
+                    </form>
+                </div>
         </div>
     </div>
 
