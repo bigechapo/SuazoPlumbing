@@ -53,9 +53,11 @@
             }
 
         .logo img {
-            height: 80px; 
-            width: auto; 
+            height: 80px;
+            width: auto;
             object-fit: contain;
+            border:outset;
+            border-color:black;
         }
 
         /* NAV LINKS */
@@ -159,6 +161,9 @@
 
             .image-gallery img {
                 border-radius: 10px;
+                border: outset;
+                border-block-start-color:palegoldenrod;
+                border-inline-end-color:black;
             }
 
         .footer-outline {
@@ -168,7 +173,7 @@
             text-align: center;
             box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
             border-radius: 40px;
-            padding: 40px;
+            padding: 30px;
             max-width: 900px;
             margin: 0 auto;
         }
@@ -188,9 +193,13 @@
         .service {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            gap: 20px;
+            gap: 40px;
             flex-wrap: wrap;
+        }
+
+        .service-column {
+            flex: 1;
+            text-align: center;
         }
             .service img {
                 padding: 5px;
@@ -339,26 +348,27 @@
         <div class="footer-outline" id="contact">
             <div class="footer-container" id="contact">
                 <h2>Down below are some of the projects I have completed:</h2>
-                <div class="service" id="service">
-                    <div class="service-section" id="service-section">
-                        <h2>Before</h2>
-                        <div class="image-gallery" id="image-gallery">
-                            <img height="250" width="250" src="Images/showerbefore.jpeg" />
-                            <img height="250" width="250" src="Images/bathroombefore.jpeg" />
-                            <img height="250" width="250" src="Images/sinkbefore.jpeg" />
-                        </div>
+                  
+                  <div class="service" id="service">
+                      <div class="service-column" id="service-column">
+                          <h2>Before</h2>
+                              <div class="image-gallery" id="image-gallery">
+                                  <img height="250" width="250" src="Images/showerbefore.jpeg" />
+                                  <img height="250" width="250" src="Images/bathroombefore.jpeg" />
+                                  <img height="250" width="250" src="Images/sinkbefore.jpeg" />
+                              </div>
 
+                      </div>
 
-                        <h2>After</h2>
-                        <div class="image-gallery" id="image-gallery">
-                            <img height="250" width="250" src="Images/showerafter.jpeg" />
-                            <img height="250" width="250" src="Images/bathroomafter.jpeg" />
-                            <img height="250" width="250" src="Images/sinkafter.jpeg" />
-                        </div>
-                    </div>    
-                    
-             
-                </div>
+                      <div class="service-column" id="service-column">
+                           <h2>After</h2>
+                              <div class="image-gallery" id="image-gallery">
+                                   <img height="250" width="250" src="Images/showerafter.jpeg" />
+                                   <img height="250" width="250" src="Images/bathroomafter.jpeg" />
+                                    <img height="250" width="250" src="Images/sinkafter.jpeg" />
+                              </div>
+                      </div>
+                  </div>
             </div>
         </div>
     </div>
