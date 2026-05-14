@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Suazo Trailer</title>
     <link rel="icon" type="image/x-icon" href="/Images/plumbpro.png">
@@ -9,20 +10,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Comfortaa:wght@300;400&display=swap" rel="stylesheet">
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             padding: 0;
+            width: 100%;
+            overflow-x: hidden;
             font-family: 'Times New Roman', sans-serif;
             color: white;
             background-image: url(/Images/plumbpro.png);
-            background-position-x: center;
-            background-size: cover
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
         }
 
-        p, li {
+        p, ul {
             font-size: 18px;
+            line-height: 1.6;
         }
 
+        /* NAVBAR */
         .navbar {
             position: sticky;
             top: 0;
@@ -31,247 +41,180 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 40px;
+            padding: 12px 20px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
 
-        /* LOGO */
         .logo a {
             display: flex;
             align-items: center;
             gap: 12px;
             color: white;
             text-decoration: none;
-            font-family: 'Times New Roman', serif;
-            font-size: 1.6rem;
-            font-weight: 600;
+            font-size: 1.5rem;
+            font-weight: bold;
+            flex-wrap: wrap;
         }
-
-            .logo a:hover {
-                text-decoration: none;
-                color: white;
-            }
 
         .logo img {
-            height: 80px;
+            height: 65px;
             width: auto;
             object-fit: contain;
-            border: outset;
-            border-color: black;
+            border: 2px outset black;
         }
 
-        /* NAV LINKS */
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 25px;
+        /* HAMBURGER */
+        .menu-toggle {
+            font-size: 2rem;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
         }
 
-            .nav-links a,
-            .dropbtn {
-                text-decoration: none;
-                color: white;
-                font-weight: bold;
-                padding: 8px 16px;
-                border-radius: 25px;
-                transition: background 0.3s ease;
-                font-size: 20px;
+        /* OVERLAY */
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+            z-index: 1500;
+        }
+
+            .overlay.active {
+                opacity: 1;
+                visibility: visible;
             }
 
-                .nav-links a:hover,
-                .dropbtn:hover {
-                    background-color: black;
+        /* SIDE MENU */
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: -280px;
+            width: 260px;
+            height: 100%;
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            padding: 80px 25px 25px;
+            gap: 20px;
+            transition: right 0.3s ease;
+            z-index: 2000;
+        }
+
+            .side-menu.active {
+                right: 0;
+            }
+
+            .side-menu a,
+            .mobile-dropbtn {
+                color: white;
+                text-decoration: none;
+                font-size: 20px;
+                font-weight: bold;
+                background: none;
+                border: none;
+                text-align: left;
+                cursor: pointer;
+                padding: 12px 0;
+                width: 100%;
+            }
+
+                .side-menu a:hover,
+                .mobile-dropbtn:hover {
+                    color: tan;
                 }
 
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            color: white;
+        }
 
         /* DROPDOWN */
-        .dropdown {
-            position: relative;
-            font-size: 20px;
-        }
-
-        .dropbtn {
-            text-decoration: none;
+        .dropdown-btn {
+            background: none;
+            border: none;
             color: white;
-            font-weight: bold;
-            padding: 8px 15px;
-            border-radius: 20px;
-            transition: background 0.3s;
-            display: inline-block;
+            font-size: 18px;
+            text-align: left;
+            padding: 12px 0;
+            cursor: pointer;
+            width: 100%;
         }
 
-            .dropbtn:hover {
-                background-color: #1c86ee;
-            }
-
-        /* Dropdown menu hidden by default */
         .dropdown-content {
             display: none;
-            position: absolute;
-            background-color: black;
-            min-width: 180px;
-            top: 100%;
-            left: 0;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            overflow: hidden;
-            z-index: 1001;
+            flex-direction: column;
+            padding-left: 10px;
         }
 
-            /* Dropdown links */
             .dropdown-content a {
-                color: white;
-                padding: 10px 15px;
-                text-decoration: none;
-                display: block;
-                font-weight: bold;
+                font-size: 16px;
+                padding: 8px 0;
             }
 
-                .dropdown-content a:hover {
-                    background-color: #808080;
-                }
-
-        /* Show dropdown on hover */
-        .dropdown:hover .dropdown-content {
-            display: block;
+        .dropdown.open .dropdown-content {
+            display: flex;
         }
 
+        /* CONTENT */
         .content {
-            padding: 40px;
+            width: 100%;
+            padding: 16px;
         }
 
-        /* Mobile friendly images*/
+        .card {
+            width: 100%;
+            max-width: 100%;
+            background: rgba(47,79,79,0.9);
+            border-radius: 18px;
+            padding: 20px;
+            margin: 10px 0;
+            border: 2px outset;
+        }
+
+        p, li {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* EQUIPMENT */
         .equipment-section {
             display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 20px;
             flex-wrap: wrap;
+            gap: 15px;
         }
-
-            .equipment-section ul {
-                flex: 1;
-                text-align: left;
-            }
 
         .image-gallery {
-            flex: 1;
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
             gap: 10px;
-            justify-content: center;
+            width: 100%;
         }
 
             .image-gallery img {
+                width: 100%;
                 border-radius: 10px;
-                border: outset;
-                border-block-start-color: palegoldenrod;
-                border-inline-end-color: black;
+                border: 2px outset;
             }
 
-        /* ABOUT SECTION */
-        .footer-container {
-            background-color: darkslategrey;
-            font-family: 'Times New Roman', serif;
-            color: white;
-            text-align: center;
-            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 40px;
-            padding: 20px;
-            max-width: 850px;
-            margin: 0 auto;
-            border: outset;
-            border-block-start-color: palegoldenrod;
-            border-inline-end-color: black;
-        }
-
-        /* MOBILE RESPONSIVE FIX */
-        @media (max-width: 768px) {
-
-            /* NAVBAR STACK */
-            .navbar {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 15px 20px;
-            }
-
-            .logo img {
-                height: 60px;
-            }
-
-            .logo a {
-                font-size: 1.3rem;
-            }
-
-            .nav-links {
-                flex-direction: column;
-                width: 100%;
-                gap: 10px;
-                margin-top: 10px;
-            }
-
-                .nav-links a,
-                .dropbtn {
-                    width: 100%;
-                    text-align: left;
-                    padding: 12px;
-                }
-
-            /* DROPDOWN FIX FOR MOBILE */
-            .dropdown-content {
-                position: static;
-                display: block;
-                width: 100%;
-                box-shadow: none;
-                border-radius: 0;
-                margin-top: 5px;
-            }
-
-                .dropdown-content a {
-                    padding-left: 20px;
-                }
-
-            /* CONTENT SPACING */
+        /* DESKTOP ENHANCEMENT */
+        @media (min-width: 900px) {
             .content {
-                padding: 20px;
+                display: flex;
+                justify-content: center;
             }
 
-            .footer-container {
-                padding: 20px;
-                border-radius: 20px;
-            }
-
-            h2 {
-                font-size: 22px;
-            }
-
-            h3 {
-                font-size: 18px;
-            }
-
-            p, li {
-                font-size: 16px;
-            }
-
-            ul {
-                padding-left: 20px;
-            }
-
-            /* EQUIPMENT SECTION STACK */
-            .equipment-section {
-                flex-direction: column;
-                align-items: center;
-            }
-
-                .equipment-section section {
-                    width: 100%;
-                }
-
-            /* IMAGE FIX */
-            .image-gallery img {
-                width: 100%;
-                height: auto;
-                max-width: 100%;
+            .card {
+                max-width: 900px;
             }
         }
     </style>
@@ -288,78 +231,102 @@
             </a>
         </div>
 
-        <div class="nav-links">
-            <!-- DROPDOWN -->
-            <div class="dropdown">
-                <a href="#" class="dropbtn">Services ▾</a>
+        <button class="menu-toggle" id="menu-toggle">☰</button>
+    </div>
 
-                <div class="dropdown-content">
-                    <a href="/Plumbing.html">Suazo Plumbing</a>
-                    <a href="/Trailer.html">Suazo Trailer</a>
-                </div>
+    <!-- SIDE MENU -->
+    <div class="side-menu" id="side-menu">
+
+        <button class="close-btn" id="close-btn">×</button>
+
+        <a href="/index.html">Home</a>
+
+        <!-- DROPDOWN SERVICES -->
+        <div class="dropdown" id="dropdown">
+            <button class="dropdown-btn" id="dropdown-btn">Services ▾</button>
+            <div class="dropdown-content">
+                <a href="/Plumbing.html">Plumbing</a>
+                <a href="/Trailer.html">Trailer / Trash</a>
             </div>
-                <a href="/Contact.html">Contact Me</a>
+        </div>
+
+        <a href="/Contact.html">Contact</a>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <!-- CONTENT -->
+    <div class="content">
+        <div class="card">
+            <h2 style="text-align: center">Suazo Trailer/Trash Services</h2>
+            <h3 style="text-align: center">Quality Work. Honest Service.</h3>
+
+            <p style="text-align: center">
+                If you would like more on my Plumbing Service:
+                <a href="/Plumbing.html" style="color:white; text-decoration:underline;">Click here</a>
+            </p>
+
+            <ul>
+                <li>24 Hour Trailer/Trash Services</li>
+                <li>Trash / Hauling</li>
+                <li>Apartment / House Cleanouts</li>
+                <li>Garage / Storage Cleanouts</li>
+                <li>Yard Waste Removal</li>
+                <li>Residential & Commercial Disposal</li>
+            </ul>
         </div>
     </div>
 
+    <!-- EQUIPMENT -->
     <div class="content">
-            <div class="footer-container" id="about">
-                <h2>Suazo Trailer/Trash Services</h2>
-                <h3>Quality Work. Honest Service.</h3>
-                <p>If you would like more on my Plumbing Service please click here: <a href="/Plumbing.html" style="color: white; text-decoration: underline;">Suazo Plumbing</a></p>
-                <p>
-                
-                </p>
+        <div class="card">
 
-                <p>I provide:</p>
+            <p style="text-align: center">My current trailers for Pick-up and/or Dump:</p>
 
-                <ul style="text-align:left;">
-                    <li><strong>24 Hour</strong> Trailer/Trash Services</li>
-                    <li>Trash/Trunk/Hauling</li>
-                    <li>Apartment/House Cleanouts</li>
-                    <li>Garage/Storage Cleanouts</li>
-                    <li>Yard Waste & Bulk Item Removal</li>
-                    <li>Safe & Proper Disposal Residential and Commercial</li>
+            <div class="equipment-section">
+
+                <ul>
+                    <li>4 x 8 Small Pick-up</li>
+                    <li>8 x 12 Hydraulic Dump Trailer</li>
                 </ul>
-            </div>
-    </div>
 
-    <div class="content">
-            <div class="footer-container" id="about">
-                <p style="text-align:center;">My current trailers for Pick-up and/or Dump:</p>
-                <p style="margin-bottom:50px;"></p>
-
-
-                <div class="equipment-section">
-                    <section>
-                        <ul>
-                            <li>4 x 8 Small Pick-up</li>
-                        </ul>
-
-                        <p style="margin-bottom: 200px; text-align: left;"></p>
-
-
-                        <ul>
-                            <li>8 x 12 x 4 Hydraulic Dump Trailer</li>
-                        </ul>
-                    </section>
-                    <section>
-                        <div class="image-gallery">
-                            <img height="200" width="210" src="/Images/smalltrailer2.jpeg" alt="Small Trailer" />
-                            <img height="200" width="235" src="/Images/smalltrailer3.jpeg" alt="Small Trailer" />
-
-                        </div>
-                        <p style="margin-bottom: 10px; text-align: left;"></p>
-                        <div class="image-gallery">
-                            <img height="165" width="225" src="/Images/hydraulictrailer1.jpeg" alt="Hydraulic Trailer 1" />
-                            <img height="165" width="225" src="/Images/hydraulictrailer2.jpeg" alt="Hydraulic Trailer 2" />
-                        </div>
-                    </section>
-
+                <div class="image-gallery">
+                    <img src="/Images/smalltrailer2.jpeg">
+                    <img src="/Images/smalltrailer3.jpeg">
+                    <img src="/Images/hydraulictrailer1.jpeg">
+                    <img src="/Images/hydraulictrailer2.jpeg">
                 </div>
+
             </div>
+
+        </div>
     </div>
+
+    <script>
+        const menuToggle = document.getElementById("menu-toggle");
+        const sideMenu = document.getElementById("side-menu");
+        const closeBtn = document.getElementById("close-btn");
+        const overlay = document.getElementById("overlay");
+        const dropdownBtn = document.getElementById("dropdown-btn");
+        const dropdown = document.getElementById("dropdown");
+
+        function closeMenu() {
+            sideMenu.classList.remove("active");
+            overlay.classList.remove("active");
+        }
+
+        menuToggle.onclick = () => {
+            sideMenu.classList.add("active");
+            overlay.classList.add("active");
+        };
+
+        closeBtn.onclick = closeMenu;
+        overlay.onclick = closeMenu;
+
+        dropdownBtn.onclick = () => {
+            dropdown.classList.toggle("open");
+        };
+    </script>
 
 </body>
 </html>
-

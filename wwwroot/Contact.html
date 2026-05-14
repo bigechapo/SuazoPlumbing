@@ -9,17 +9,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Comfortaa:wght@300;400&display=swap" rel="stylesheet">
 
     <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             padding: 0;
             font-family: 'Times New Roman', sans-serif;
             background-color: darkslategrey;
+            width: 100%;
+            overflow-x: hidden;
         }
 
-        p, input, textarea {
-            font-size: 20px;
+        p,
+        input,
+        textarea {
+            font-size: 18px;
         }
 
+        /* NAVBAR */
         .navbar {
             position: sticky;
             top: 0;
@@ -28,7 +38,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 40px;
+            padding: 12px 20px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
 
@@ -39,151 +49,207 @@
             gap: 12px;
             color: white;
             text-decoration: none;
-            font-family: 'Times New Roman', serif;
-            font-size: 1.6rem;
-            font-weight: 600;
+            font-size: 1.5rem;
+            font-weight: bold;
         }
-
-            .logo a:hover {
-                text-decoration: none;
-                color: white;
-            }
 
         .logo img {
-            height: 80px;
+            height: 65px;
             width: auto;
             object-fit: contain;
-            border: outset;
-            border-color: black;
+            border: 2px outset black;
         }
 
-        /* NAV LINKS */
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-        }
-
-            .nav-links a,
-            .dropbtn {
-                text-decoration: none;
-                color: white;
-                font-weight: bold;
-                padding: 8px 16px;
-                border-radius: 25px;
-                transition: background 0.3s ease;
-                font-size: 20px;
-            }
-
-                .nav-links a:hover,
-                .dropbtn:hover {
-                    background-color: black;
-                }
-
-        /* DROPDOWN */
-        .dropdown {
-            position: relative;
-            font-size: 20px;
-        }
-
-        .dropbtn {
-            text-decoration: none;
+        /* HAMBURGER BUTTON */
+        .menu-toggle {
+            font-size: 2rem;
+            background: none;
+            border: none;
             color: white;
-            font-weight: bold;
-            padding: 8px 15px;
-            border-radius: 20px;
-            transition: background 0.3s;
-            display: inline-block;
+            cursor: pointer;
+            padding: 10px;
         }
 
-            .dropbtn:hover {
-                background-color: white;
-            }
-
-        /* Dropdown menu hidden by default */
-        .dropdown-content {
-            display: none;
-            position: absolute;
+        /* SIDE MENU */
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: -280px;
+            width: 260px;
+            height: 100%;
             background-color: black;
-            min-width: 180px;
-            top: 100%;
-            left: 0;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            overflow: hidden;
-            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+            padding: 80px 25px 25px;
+            gap: 20px;
+            transition: right 0.3s ease;
+            z-index: 2000;
         }
 
-            /* Dropdown links */
-            .dropdown-content a {
-                color: white;
-                padding: 10px 15px;
-                text-decoration: none;
-                display: block;
-                font-weight: bold;
+            .side-menu.active {
+                right: 0;
             }
 
-                .dropdown-content a:hover {
-                    background-color: #808080;
+            .side-menu a,
+            .mobile-dropbtn {
+                color: white;
+                text-decoration: none;
+                font-size: 20px;
+                font-weight: bold;
+                background: none;
+                border: none;
+                text-align: left;
+                cursor: pointer;
+                padding: 12px 0;
+                width: 100%;
+            }
+
+                .side-menu a:hover,
+                .mobile-dropbtn:hover {
+                    color: tan;
                 }
 
-        /* Show dropdown on hover */
-        .dropdown:hover .dropdown-content {
-            display: block;
+        /* CLOSE BUTTON */
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
         }
 
+        /* MOBILE DROPDOWN */
+        .mobile-dropdown-content {
+            display: none;
+            flex-direction: column;
+            padding-left: 15px;
+        }
+
+        .mobile-dropdown.active .mobile-dropdown-content {
+            display: flex;
+        }
+
+        .mobile-dropdown-content a {
+            font-size: 18px;
+            padding: 8px 0;
+        }
+
+        /* OVERLAY */
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s ease;
+            z-index: 1500;
+        }
+
+            .overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
+
+        /* CONTENT */
         .content {
-            padding: 40px;
+            width: 100%;
+            padding: 25px 15px;
         }
 
-        /* ABOUT SECTION */
+        /* CONTACT CONTAINER */
         .footer-container {
             background-color: black;
-            font-family: 'Times New Roman', serif;
             color: #f1f1f1;
             text-align: center;
             box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 40px;
-            padding: 30px;
-            max-width: 800px;
+            border-radius: 25px;
+            padding: 30px 20px;
+            width: 100%;
+            max-width: 900px;
             margin: 0 auto;
-            border: outset;
+            border: 3px outset tan;
         }
 
-        /* CONTACT FORM */
         .contact-section {
-            text-align: center;
-            margin-top: 80px;
+            width: 100%;
         }
 
+            .contact-section h1 {
+                font-size: 2.2rem;
+                margin-bottom: 20px;
+            }
+
+        /* FORM */
         form {
-            max-width: 500px;
-            margin: 0 auto;
+            width: 100%;
+            max-width: 600px;
+            margin: 30px auto 0 auto;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 18px;
         }
 
-        input, textarea {
-            padding: 10px;
-            border-radius: 10px;
+        input,
+        textarea {
+            width: 100%;
+            padding: 14px;
+            border-radius: 12px;
             border: 1px solid #ccc;
             font-family: 'Times New Roman', sans-serif;
         }
 
-        button {
-            padding: 12px;
-            border: none;
-            border-radius: 20px;
-            background-color: DodgerBlue;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
+        textarea {
+            resize: vertical;
         }
 
-            button:hover {
-                background-color: #1c86ee;
+        button.submit-btn {
+            padding: 14px;
+            border: none;
+            border-radius: 25px;
+            background-color: tan;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 18px;
+            transition: 0.3s ease;
+        }
+
+            button.submit-btn:hover {
+                background-color: #d2a679;
             }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+
+            .logo a {
+                font-size: 1.2rem;
+            }
+
+            .logo img {
+                height: 55px;
+            }
+
+            .contact-section h1 {
+                font-size: 1.8rem;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            input,
+            textarea,
+            button.submit-btn {
+                font-size: 16px;
+            }
+
+            .footer-container {
+                padding: 25px 15px;
+            }
+        }
     </style>
 </head>
 
@@ -191,6 +257,8 @@
 
     <!-- NAVBAR -->
     <div class="navbar">
+
+        <!-- LOGO -->
         <div class="logo">
             <a href="/index.html">
                 <img src="/Images/plumbpro.png" alt="Logo">
@@ -198,43 +266,119 @@
             </a>
         </div>
 
-        <div class="nav-links">
+        <!-- HAMBURGER -->
+        <button class="menu-toggle" id="menu-toggle">
+            ☰
+        </button>
 
-            <!-- DROPDOWN -->
-            <div class="dropdown">
-                <a href="#" class="dropbtn">Services ▾</a>
+        <!-- SIDE MENU -->
+        <div class="side-menu" id="side-menu">
 
-                <div class="dropdown-content">
+            <button class="close-btn" id="close-btn">
+                ×
+            </button>
+
+            <a href="/index.html">Home</a>
+
+            <div class="mobile-dropdown">
+
+                <button class="mobile-dropbtn">
+                    Services ▾
+                </button>
+
+                <div class="mobile-dropdown-content">
                     <a href="/Plumbing.html">Suazo Plumbing</a>
                     <a href="/Trailer.html">Suazo Trailer</a>
                 </div>
+
             </div>
+
             <a href="/Contact.html">Contact Me</a>
+
         </div>
+
+        <!-- OVERLAY -->
+        <div class="overlay" id="overlay"></div>
+
     </div>
 
+    <!-- CONTENT -->
     <div class="content">
-        <div class="footer-container" id="footer.container">
-                <div class="contact-section" id="contact">
-                    <h1>Contact Me</h1>
-                    <p>Phone number: (213) 864 - 1738</p>
-                    <p style="margin-bottom: 20px;"></p>
-                    <p>Email: plumbprosuazo@gmail.com</p>
-                    <p style="margin-bottom: 25px;"></p>
-                    <p>Or</p>
-                    <p style="margin-bottom: 25px;"></p>
-                    <p>Leave your name, email and the problem you are currently facing and I will be happy to help!</p>
-                    <p style="margin-bottom: 20px;"></p>
 
-                    <form method="post" action="/contact">
-                        <input type="text" name="name" placeholder="Your Name" required>
-                        <input type="email" name="email" placeholder="Your Email" required>
-                        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-                        <button style="background-color: tan" type="submit">Send Message</button>
-                    </form>
-                </div>
+        <div class="footer-container">
+
+            <div class="contact-section">
+
+                <h1>Contact Me</h1>
+
+                <p>Phone Number: (213) 864 - 1738</p>
+
+                <p>Email: plumbprosuazo@gmail.com</p>
+
+                <p>Or</p>
+
+                <p>
+                    Leave your name, email, and the problem you are currently
+                    facing and I will be happy to help!
+                </p>
+
+                <form method="post" action="/contact">
+
+                    <input type="text"
+                           name="name"
+                           placeholder="Your Name"
+                           required>
+
+                    <input type="email"
+                           name="email"
+                           placeholder="Your Email"
+                           required>
+
+                    <textarea name="message"
+                              rows="5"
+                              placeholder="Your Message"
+                              required></textarea>
+
+                    <button class="submit-btn" type="submit">
+                        Send Message
+                    </button>
+
+                </form>
+
+            </div>
+
         </div>
+
     </div>
+
+    <!-- SCRIPT -->
+    <script>const menuToggle = document.getElementById('menu-toggle');
+        const sideMenu = document.getElementById('side-menu');
+        const closeBtn = document.getElementById('close-btn');
+        const overlay = document.getElementById('overlay');
+
+        /* OPEN MENU */
+        menuToggle.addEventListener('click', () => {
+            sideMenu.classList.add('active');
+            overlay.classList.add('active');
+        });
+
+        /* CLOSE MENU */
+        closeBtn.addEventListener('click', closeMenu);
+        overlay.addEventListener('click', closeMenu);
+
+        function closeMenu() {
+            sideMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        }
+
+        /* DROPDOWN */
+        const dropdown = document.querySelector('.mobile-dropdown');
+        const dropBtn = document.querySelector('.mobile-dropbtn');
+
+        dropBtn.addEventListener('click', () => {
+            dropdown.classList.toggle('active');
+        });</script>
 
 </body>
 </html>

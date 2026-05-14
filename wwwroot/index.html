@@ -1,29 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 
     <title>Suazo PlumbPro</title>
+
     <link rel="icon" type="image/x-icon" href="/Images/plumbpro.png">
+
     <meta charset="utf-8" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Comfortaa:wght@300;400&display=swap" rel="stylesheet">
 
     <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             padding: 0;
+            width: 100%;
+            overflow-x: hidden;
             font-family: 'Times New Roman', sans-serif;
             color: white;
             background-image: url(/Images/plumbpro.png);
-            background-position-x: center;
+            background-position: center;
             background-size: cover;
+            background-attachment: fixed;
         }
 
-        p {
-            font-size: 20px;
+        p, ul {
+            font-size: 18px;
+            line-height: 1.6;
         }
 
+        /* NAVBAR */
         .navbar {
             position: sticky;
             top: 0;
@@ -32,7 +45,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 40px;
+            padding: 12px 20px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
 
@@ -43,211 +56,196 @@
             gap: 12px;
             color: white;
             text-decoration: none;
-            font-family: 'Times New Roman', serif;
-            font-size: 1.6rem;
-            font-weight: 600;
+            font-size: 1.5rem;
+            font-weight: bold;
+            flex-wrap: wrap;
         }
-
-            .logo a:hover {
-                text-decoration: none;
-                color: white;
-            }
 
         .logo img {
-            height: 80px;
+            height: 65px;
             width: auto;
             object-fit: contain;
-            border: outset;
-            border-color: black;
+            border: 2px outset black;
         }
 
-        /* NAV LINKS */
-        .nav-links {
+        /* HAMBURGER */
+        .menu-toggle {
+            font-size: 2rem;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        /* SIDE MENU */
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: -280px;
+            width: 260px;
+            height: 100%;
+            background-color: black;
             display: flex;
-            align-items: center;
-            gap: 25px;
+            flex-direction: column;
+            padding: 80px 25px 25px;
+            gap: 20px;
+            transition: right 0.3s ease;
+            z-index: 2000;
         }
 
-            .nav-links a,
-            .dropbtn {
-                text-decoration: none;
-                color: white;
-                font-weight: bold;
-                padding: 8px 16px;
-                border-radius: 25px;
-                transition: background 0.3s ease;
-                font-size: 20px;
+            .side-menu.active {
+                right: 0;
             }
 
-                .nav-links a:hover,
-                .dropbtn:hover {
-                    background-color: black;
+            .side-menu a,
+            .mobile-dropbtn {
+                color: white;
+                text-decoration: none;
+                font-size: 20px;
+                font-weight: bold;
+                background: none;
+                border: none;
+                text-align: left;
+                cursor: pointer;
+                padding: 12px 0;
+                width: 100%;
+            }
+
+                .side-menu a:hover,
+                .mobile-dropbtn:hover {
+                    color: tan;
                 }
 
+        /* CLOSE BUTTON */
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* DROPDOWN */
+        .mobile-dropdown-content {
+            display: none;
+            flex-direction: column;
+            padding-left: 15px;
+        }
+
+        .mobile-dropdown.active .mobile-dropdown-content {
+            display: flex;
+        }
+
+        .mobile-dropdown-content a {
+            font-size: 18px;
+            padding: 8px 0;
+        }
+
+        /* OVERLAY */
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s ease;
+            z-index: 1500;
+        }
+
+            .overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
+
+        /* PAGE CONTENT */
+        .content {
+            width: 100%;
+            padding: 25px 15px;
+        }
+
+        /* CONTAINERS */
+        .footer-container {
+            background-color: rgba(47, 79, 79, 0.95);
+            color: white;
+            text-align: center;
+            border-radius: 25px;
+            padding: 30px 20px;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            border: 3px outset palegoldenrod;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        /* LADDER SECTION */
+        .ladder-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+            .ladder-section section {
+                flex: 1;
+                min-width: 280px;
+            }
+
+        /* IMAGE GALLERY */
         .image-gallery {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-            gap: 15px;
+            align-items: center;
         }
 
             .image-gallery img {
                 width: 100%;
                 max-width: 220px;
                 height: auto;
-                border-radius: 10px;
-                border: outset;
-                border-color: black;
+                border-radius: 12px;
+                border: 3px outset black;
             }
 
-        /* DROPDOWN */
-        .dropdown {
-            position: relative;
-            font-size: 20px;
-        }
-
-        .dropbtn {
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            padding: 8px 15px;
-            border-radius: 20px;
-            transition: background 0.3s;
-            display: inline-block;
-        }
-
-            .dropbtn:hover {
-                background-color: #1c86ee;
-            }
-
-        /* Dropdown menu hidden by default */
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: black;
-            min-width: 180px;
-            top: 100%;
-            left: 0;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            overflow: hidden;
-            z-index: 1001;
-        }
-
-            /* Dropdown links */
-            .dropdown-content a {
-                color: white;
-                padding: 10px 15px;
-                text-decoration: none;
-                display: block;
-                font-weight: bold;
-            }
-
-                .dropdown-content a:hover {
-                    background-color: #808080;
-                }
-
-        /* Show dropdown on hover */
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .content {
-            padding: 40px;
-        }
-
-        /* ABOUT SECTION */
-        .footer-container {
-            background-color: darkslategrey;
-            font-family: 'Times New Roman', serif;
-            color: white;
-            text-align: center;
-            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 40px;
-            padding: 20px;
-            max-width: 850px;
-            margin: 0 auto;
-            border: outset;
-            border-block-start-color: palegoldenrod;
-            border-inline-end-color: black;
-        }
-
-        .ladder-section {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
-            .ladder-section section {
-                flex: 1;
-            }
-
-        .image-gallery img {
-            max-width: 200px;
-            height: auto;
-            border: outset;
-            border-block-start-color: palegoldenrod;
-            border-inline-end-color: black;
-        }
-
-        /* MOBILE STYLES */
+        /* MOBILE RESPONSIVE */
         @media (max-width: 768px) {
 
             .navbar {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 15px 20px;
+                padding: 12px 15px;
             }
 
             .logo a {
-                font-size: 1.3rem;
+                font-size: 1.2rem;
             }
 
             .logo img {
-                height: 60px;
+                height: 55px;
             }
 
-            .nav-links {
-                flex-direction: column;
-                width: 100%;
-                gap: 10px;
-                margin-top: 10px;
+            .content {
+                padding: 20px 10px;
             }
 
-                .nav-links a, .dropbtn {
-                    width: 100%;
-                    text-align: left;
-                    padding: 10px;
-                }
-
-            .dropdown-content {
-                position: static;
-                width: 100%;
-                box-shadow: none;
-                border-radius: 0;
+            .footer-container {
+                padding: 25px 15px;
+                border-radius: 20px;
             }
 
             .ladder-section {
                 flex-direction: column;
-                align-items: center;
+                gap: 20px;
             }
 
                 .ladder-section section {
                     width: 100%;
                 }
 
-            .image-gallery {
-                justify-content: center;
-            }
-
-                .image-gallery img {
-                    max-width: 90%;
-                }
-
-            .footer-container {
-                padding: 20px;
-                border-radius: 20px;
+            .image-gallery img {
+                max-width: 90%;
             }
 
             p {
@@ -255,68 +253,189 @@
             }
 
             h1 {
-                font-size: 24px;
+                font-size: 1.8rem;
+            }
+
+            .side-menu {
+                width: 240px;
             }
         }
     </style>
+
 </head>
 
 <body>
+
     <!-- NAVBAR -->
     <div class="navbar">
+
+        <!-- LOGO -->
         <div class="logo">
+
             <a href="/index.html">
+
                 <img src="/Images/plumbpro.png" alt="Logo">
+
                 <span>Suazo PlumbPro</span>
+
             </a>
+
         </div>
 
-        <div class="nav-links">
+        <!-- HAMBURGER -->
+        <button class="menu-toggle" id="menu-toggle">
+            ☰
+        </button>
 
-            <!-- DROPDOWN -->
-            <div class="dropdown">
-                <a href="#" class="dropbtn">Services ▾</a>
+        <!-- SIDE MENU -->
+        <div class="side-menu" id="side-menu">
 
-                <div class="dropdown-content">
+            <button class="close-btn" id="close-btn">
+                ×
+            </button>
+
+            <a href="/index.html">Home</a>
+
+            <div class="mobile-dropdown">
+
+                <button class="mobile-dropbtn">
+                    Services ▾
+                </button>
+
+                <div class="mobile-dropdown-content">
+
                     <a href="/Plumbing.html">Suazo Plumbing</a>
+
                     <a href="/Trailer.html">Suazo Trailer</a>
+
                 </div>
+
             </div>
+
             <a href="/Contact.html">Contact Me</a>
 
         </div>
+
+        <!-- OVERLAY -->
+        <div class="overlay" id="overlay"></div>
+
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="content">
+
+        <div class="footer-container">
+
+            <p>
+                Welcome to my page, I am proud of the services I provide to serve my community.
+                I complete services that include plumbing, trailer hauling and trash disposal.
+            </p>
+
+            <div class="ladder-section">
+
+                <section>
+
+                    <p style="text-align: left;">
+                        I focus on plumbing work, whether it's piping,
+                        sewer repairs, toilet & faucet repairs, etc.
+                    </p>
+
+                    <p style="text-align: left;">
+                        I also do trailer hauling, trash disposal and cleanouts.
+                    </p>
+
+                    <p style="text-align: left;">
+                        Find out more about my services on the services dropdown!
+                    </p>
+
+                </section>
+
+                <section class="image-gallery">
+
+                    <img src="/Images/suazoladder1.png" alt="Suazo Ladder 1">
+
+                </section>
+
+                <section class="image-gallery">
+
+                    <img src="/Images/suazoladder2.png" alt="Suazo Ladder 2">
+
+                </section>
+
+            </div>
+
         </div>
 
-    <div class="content">
-
-            <div class="footer-container" id="about">
-                <p>Welcome to my page, I am proud of the services I provide to serve my community. I complete services that include plumbing, trailer hauling and trash disposal.</p>
-                    <div class="ladder-section">
-                        <section>
-                            <p style="text-align: left;">I focus on plumbing work, wether it's piping, sewer repairs, toilet & faucet repairs, etc. </p>
-                            <p style="text-align: left;">I also do trailer hauling, trash disposal and cleanouts.</p>
-                            <p style="text-align: left;">Find out more about my services on the services dropdown!</p>
-                        </section>
-                        <section>
-                            <div class="image-gallery">
-                                <img src="/Images/suazoladder1.png" alt="Suazo Ladder 1">
-                            </div>
-                        </section>
-                        <div class="image-gallery">
-                            <img src="/Images/suazoladder2.png" alt="Suazo Ladder 2">
-                        </div>
-                    </div>
-
-            </div>
-       
     </div>
 
+    <!-- ABOUT SECTION -->
     <div class="content">
 
-            <div class="footer-container" id="about">
-                <h1>About Me</h1>
-                <p style="text-align: center;">info here</p>
-            </div>
+        <div class="footer-container">
+
+            <h1>About Me</h1>
+
+            <p>
+                I’m Elias Suazo, and I believe that every homeowner deserves a plumber they can trust. As a licensed professional serving the Southern California area, I treat every project as if it were my own home.
+                Beyond just fixing pipes, I’m a neighbor who understands the local community’s needs. I’ve built my reputation on being there when others aren’t. Because plumbing issues can be stressful, I make it my mission to provide fast, 24-hour service with transparent communication. Whether we are working on a scheduled fixture upgrade or an emergency repair, my goal is to provide peace of mind along with top-tier technical skill.
+            </p>
+
+            <p>
+                When you call Suazo Plumb Pro, you’re getting more than just a quick fix—you’re getting a team of dedicated professionals. While I oversee every project to ensure it meets our high standards, I have a crew of skilled technicians ready to be dispatched at a moment's notice.
+                Whether it’s me or one of my experienced team members at your door, you can expect the same level of respect, technical expertise, and 24-hour dedication. Every member of our team is trained to handle Southern California's unique plumbing challenges with the same precision and care that I put into every job myself.
+            </p>
+
+            <ul style="text-align:left">
+                <li>Certified Expertise: Journeyman-level experience with specialized certifications in pipe fitting and commercial systems.</li>
+                <li>24/7 Availability: I’m on call around the clock because emergencies don't wait for business hours.</li>
+                <li>Full-Service Solutions: Specializing in drain cleaning, re-piping, and fixture installations for both homes and businesses.</li>
+                <li>Locally Owned: Proudly serving Los Angeles,Glendale, Covina, Lancaster, and the surrounding Southern California areas.</li>
+            </ul>
+
+        </div>
+
     </div>
+
+    <!-- SCRIPT -->
+    <script>
+
+        const menuToggle = document.getElementById('menu-toggle');
+        const sideMenu = document.getElementById('side-menu');
+        const closeBtn = document.getElementById('close-btn');
+        const overlay = document.getElementById('overlay');
+
+        /* OPEN MENU */
+        menuToggle.addEventListener('click', () => {
+
+            sideMenu.classList.add('active');
+            overlay.classList.add('active');
+
+        });
+
+        /* CLOSE MENU */
+        closeBtn.addEventListener('click', closeMenu);
+
+        overlay.addEventListener('click', closeMenu);
+
+        function closeMenu() {
+
+            sideMenu.classList.remove('active');
+            overlay.classList.remove('active');
+
+        }
+
+        /* DROPDOWN */
+        const dropdown = document.querySelector('.mobile-dropdown');
+
+        const dropBtn = document.querySelector('.mobile-dropbtn');
+
+        dropBtn.addEventListener('click', () => {
+
+            dropdown.classList.toggle('active');
+
+        });
+
+    </script>
+
 </body>
 </html>
