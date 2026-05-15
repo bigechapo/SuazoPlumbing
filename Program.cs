@@ -26,7 +26,7 @@ app.MapPost("/contact", async (HttpRequest request) =>
     var mail = new MailMessage
     {
         From = new MailAddress("plumbprosuazo@gmail.com"),
-        Subject = $"New Contact Form Message from {name}",
+        Subject = $"New Service Request from {name}",
         Body = $"Email: {email}\n\nMessage:\n{message}"
     };
 
